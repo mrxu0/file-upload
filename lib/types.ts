@@ -10,7 +10,7 @@ export type Params = {
     locale?: string,
     again?: number,
     file?: File,
-    debug?: CONSOLE_ENUM | undefined
+    debug?: CONSOLE_ENUM[] | undefined
 }
 
 export type RequestParams = {
@@ -30,6 +30,5 @@ export type VerifyUpload = {
 export enum CONSOLE_ENUM {
     error="error",
     log="log",
-    info="info",
     warn="warn"
 }
