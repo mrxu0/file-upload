@@ -2,7 +2,7 @@ import { Params, File, RequestParams, VerifyUpload, CONSOLE_ENUM } from './types
 import Tapable from "./Tapable";
 import concurrency from './Concurrency';
 const ONE_M = 1024 * 1024; // 1M
-export class FileUpload extends Tapable {
+export default class FileUpload extends Tapable { 
     params: Params = { chunkSize: 5, concurrency: 5, locale: 'zh', again: 3, debug: undefined }
     hash = ''
     hashPercentage = 0
@@ -13,7 +13,7 @@ export class FileUpload extends Tapable {
         super(params.debug)
         this.params = Object.assign(this.params, params)
         this.params.chunkSize = this.params.chunkSize ? this.params.chunkSize * ONE_M : 5 * ONE_M
-    }
+    } 
 
     addFile(file: File): void {
         if (!this.params.file) {
@@ -105,7 +105,7 @@ export class FileUpload extends Tapable {
 
     calculateHash(fileChunkList: File[]): Promise<string> {
         return new Promise(resolve => {
-            let worker = new Worker("/hash1.js");
+            let worker = new Worker("/hash.js");
             worker.postMessage({ fileChunkList });
             worker.onmessage = (e): void => {
                 const { hash, percent } = e.data;

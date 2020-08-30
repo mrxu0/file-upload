@@ -3,7 +3,7 @@
     "strict": true,
     "sourceMap": true,
     "declaration": true,
-    "declarationDir": "dist/types/",
+    "declarationDir": "./examples/client/dist/types/",
     "noImplicitAny": true,
     "target": "ES6",
     "module": "ES6",
